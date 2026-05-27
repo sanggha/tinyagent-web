@@ -1,0 +1,54 @@
+# Tiny Agent — Apache security headers for Hostinger static deployment
+# S1: Content Security Policy
+# S2: Clickjacking protection (frame-ancestors)
+# S5: MIME-type sniffing prevention
+# S6: Referrer policy
+# S7: HTTPS enforcement (HSTS)
+# S8: Permissions policy
+
+<IfModule mod_headers.c>
+    # S5: Prevent MIME-type sniffing
+    Header always set X-Content-Type-Options "nosniff"
+
+    # S2: Prevent clickjacking via iframe embedding
+    Header always set X-Frame-Options "DENY"
+    Header always set Content-Security-Policy "frame-ancestors 'none';"
+
+    # S6: Limit referrer info sent to external sites
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+    # S8: Disable unused browser features
+    Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
+
+    # S7: Force HTTPS for 1 year (enable once HTTPS is confirmed working on Hostinger)
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+
+    # Additional hardening
+    Header always set X-XSS-Protection "1; mode=block"
+</IfModule>
+
+# S7: Redirect HTTP to HTTPS
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{HTTPS} off
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# F9: Custom 404 page
+ErrorDocument 404 /404.html
+
+# Cache static assets for performance
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType text/html "access plus 1 hour"
+</IfModule>
+
+# Compress text assets
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json
+</IfModule>
