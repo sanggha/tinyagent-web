@@ -13,26 +13,26 @@ type Slide = {
 const slides: Slide[] = [
   {
     src: "/images/ad-1.png",
-    width: 853,
+    width: 871,
     height: 1844,
     alt: "Instagram ad for a real estate agent asking 'What's your home worth?' with a free property appraisal call-to-action",
   },
   {
     src: "/images/ad-2.png",
-    width: 864,
-    height: 1821,
+    width: 871,
+    height: 1844,
     alt: "Facebook lead-form ad for a real estate agent offering a free property appraisal within 24 hours",
   },
   {
     src: "/images/ad-3.png",
-    width: 853,
+    width: 871,
     height: 1844,
     alt: "Facebook ad for a real estate agent asking homeowners 'What's your home worth?' in their suburb",
   },
   {
     src: "/images/ad-4.png",
     width: 871,
-    height: 1806,
+    height: 1844,
     alt: "Facebook feed ad for a real estate agent promoting a free home appraisal alongside local property news",
   },
 ];
