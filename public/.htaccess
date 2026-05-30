@@ -1,4 +1,9 @@
-# Tiny Agent — Apache security headers for Hostinger static deployment
+# Tiny Agent — Apache security headers (FALLBACK ONLY)
+# NOTE: Production tinyagent.io is hosted on Vercel, which IGNORES .htaccess.
+# The active security headers live in /vercel.json. Keep this file in sync only
+# if/when the site is ever moved to an Apache host (e.g. Hostinger).
+#
+# Original header: Apache security headers for Hostinger static deployment
 # S1: Content Security Policy
 # S2: Clickjacking protection (frame-ancestors)
 # S5: MIME-type sniffing prevention
