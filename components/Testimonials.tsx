@@ -6,14 +6,14 @@ import Image from "next/image";
 const testimonials = [
   {
     quote:
-      "We generated 12 vendor enquiries in the first 3 weeks. I've never seen results like this from any advertising platform. The video quality and targeting is on a completely different level.",
+      "We generated 12 vendor enquiries in the first 3 weeks. I've never seen results like this from any advertising platform. The creative quality and targeting is on a completely different level.",
     name: "James Mitchell",
     title: "Principal Agent",
     agency: "Ray White Toorak",
     stat: "12 leads",
     period: "in 3 weeks",
     photo:
-      "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=80&h=80&fit=crop&crop=faces&q=80",
+      "/images/agent-4.jpg",
   },
   {
     quote:
@@ -24,18 +24,18 @@ const testimonials = [
     stat: "5× ROI",
     period: "first quarter",
     photo:
-      "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=80&h=80&fit=crop&crop=faces&q=80",
+      "/images/agent-2.jpg",
   },
   {
     quote:
-      "The video they produced was so professional I've been using it across everything — my email signature, listing presentations, social media. It's not just ads, it builds your brand.",
+      "The creative they produced was so professional I've been using it across everything — my email signature, listing presentations, social media. It's not just ads, it builds your brand.",
     name: "Marcus Williams",
     title: "Director",
     agency: "McGrath Bondi Junction",
     stat: "78 leads",
     period: "this month",
     photo:
-      "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=80&h=80&fit=crop&crop=faces&q=80",
+      "/images/agent-1.jpg",
   },
 ];
 
@@ -119,7 +119,7 @@ export default function Testimonials() {
                 <div className="w-11 h-11 rounded-full overflow-hidden border border-slate-200 shrink-0">
                   <Image
                     src={t.photo}
-                    alt={t.name}
+                    alt={`${t.name}, ${t.title} at ${t.agency}`}
                     width={44}
                     height={44}
                     className="w-full h-full object-cover"

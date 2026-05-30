@@ -4,12 +4,13 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
+import OutcomeButtons from "./OutcomeButtons";
 
 const navLinks = [
   { label: "How It Works", href: "/#how-it-works" },
   { label: "What You Get", href: "/#features" },
   { label: "Showcase", href: "/#showcase" },
-  { label: "Blog", href: "/blog" },
+  { label: "Pricing", href: "/#pricing" },
   { label: "FAQ", href: "/#faq" },
 ];
 
@@ -18,11 +19,23 @@ export default function Navigation() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<string>("");
   const navRef = useRef<HTMLDivElement>(null);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
 
-  // Scroll shadow
+  // Scroll shadow — rAF-gated, only updates state on change
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", onScroll);
+    let ticking = false;
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        setScrolled((prev) => {
+          const next = window.scrollY > 20;
+          return prev === next ? prev : next;
+        });
+        ticking = false;
+      });
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
@@ -50,7 +63,7 @@ export default function Navigation() {
     return () => observer.disconnect();
   }, []);
 
-  // F7: Close mobile menu on outside click
+  // F7: Close mobile menu on outside click + Escape, restore focus to toggle
   useEffect(() => {
     if (!menuOpen) return;
     const handleOutsideClick = (e: MouseEvent) => {
@@ -58,8 +71,18 @@ export default function Navigation() {
         setMenuOpen(false);
       }
     };
+    const handleKeydown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setMenuOpen(false);
+        menuButtonRef.current?.focus();
+      }
+    };
     document.addEventListener("mousedown", handleOutsideClick);
-    return () => document.removeEventListener("mousedown", handleOutsideClick);
+    document.addEventListener("keydown", handleKeydown);
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+      document.removeEventListener("keydown", handleKeydown);
+    };
   }, [menuOpen]);
 
   return (
@@ -96,7 +119,7 @@ export default function Navigation() {
                   className={`text-sm transition-colors duration-200 ${
                     isActive
                       ? "text-white font-medium"
-                      : "text-gray-400 hover:text-white"
+                      : "text-gray-300 hover:text-white"
                   }`}
                 >
                   {link.label}
@@ -108,44 +131,43 @@ export default function Navigation() {
             })}
           </div>
 
-          {/* P9: Consistent CTA label */}
           <div className="hidden md:block">
-            <Link
-              href="/#contact"
-              className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white text-sm font-medium px-5 py-2.5 rounded-lg transition-all duration-200 shadow-lg shadow-blue-500/20"
-            >
-              Book a Free Strategy Call
-            </Link>
+            <OutcomeButtons size="sm" />
           </div>
 
           <button
-            className="md:hidden text-gray-400 hover:text-white"
+            ref={menuButtonRef}
+            className="md:hidden text-gray-300 hover:text-white"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Toggle menu"
+            aria-expanded={menuOpen}
+            aria-controls="mobile-menu"
           >
             {menuOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
 
         {menuOpen && (
-          <div className="md:hidden mt-4 pb-4 border-t border-white/10 pt-4 flex flex-col gap-4">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="text-gray-300 hover:text-white text-sm"
-                onClick={() => setMenuOpen(false)}
-              >
-                {link.label}
-              </Link>
-            ))}
-            <Link
-              href="/#contact"
-              className="mt-2 inline-flex justify-center items-center bg-blue-600 hover:bg-blue-500 text-white text-sm font-medium px-5 py-2.5 rounded-lg transition-colors"
-              onClick={() => setMenuOpen(false)}
+          <div className="md:hidden mt-3" id="mobile-menu">
+            <div
+              role="menu"
+              aria-label="Main navigation"
+              className="bg-[#0d1117] border border-white/10 rounded-2xl px-5 py-5 flex flex-col gap-4 shadow-2xl shadow-black/60"
             >
-              Book a Free Strategy Call
-            </Link>
+              {navLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="text-gray-300 hover:text-white text-sm font-medium transition-colors"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  {link.label}
+                </Link>
+              ))}
+              <div className="border-t border-white/10 pt-3 mt-1" onClick={() => setMenuOpen(false)}>
+                <OutcomeButtons size="sm" />
+              </div>
+            </div>
           </div>
         )}
       </div>

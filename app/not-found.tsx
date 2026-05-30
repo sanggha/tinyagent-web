@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import OutcomeButtons from "@/components/OutcomeButtons";
 
 export default function NotFound() {
   return (
@@ -31,12 +32,7 @@ export default function NotFound() {
         >
           Back to Homepage
         </Link>
-        <Link
-          href="#contact"
-          className="inline-flex items-center justify-center gap-2 bg-white/5 hover:bg-white/10 border border-white/10 text-white font-medium px-7 py-3.5 rounded-xl transition-all duration-200"
-        >
-          Book a Free Strategy Call
-        </Link>
+        <OutcomeButtons size="md" />
       </div>
     </div>
   );

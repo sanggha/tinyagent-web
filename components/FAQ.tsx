@@ -10,6 +10,10 @@ const faqs = [
     a: "Fast. Once we have the basic info we need from you — your target area, a few photos, and your contact details — we can have your campaign live within 24 hours. Most agents are surprised how quickly it moves.",
   },
   {
+    q: "Whose Facebook page do the ads run from?",
+    a: "Yours. Every ad runs from your own Facebook and Instagram, so all the followers, comments, shares and growth build your profile and your audience — not ours. Other services run ads from an account they control, which means the moment you stop, you walk away with nothing. With us, you're building an asset you keep.",
+  },
+  {
     q: "What's the minimum commitment?",
     a: "We ask for an initial 3-month engagement. Good advertising takes time to optimise — the first month establishes the baseline, the second improves it, and by the third you're seeing real momentum. After that, it's month-to-month.",
   },
@@ -82,6 +86,9 @@ export default function FAQ() {
               className="rounded-xl bg-white border border-slate-200 shadow-sm overflow-hidden"
             >
               <button
+                id={`faq-trigger-${i}`}
+                aria-expanded={open === i}
+                aria-controls={`faq-panel-${i}`}
                 className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left hover:bg-slate-50 transition-colors"
                 onClick={() => setOpen(open === i ? null : i)}
               >
@@ -93,6 +100,9 @@ export default function FAQ() {
               <AnimatePresence initial={false}>
                 {open === i && (
                   <motion.div
+                    id={`faq-panel-${i}`}
+                    role="region"
+                    aria-labelledby={`faq-trigger-${i}`}
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: "auto", opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}

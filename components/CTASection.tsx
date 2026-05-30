@@ -1,8 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Link from "next/link";
-import { ArrowRight, Mail } from "lucide-react";
+import { Mail } from "lucide-react";
+import OutcomeButtons from "./OutcomeButtons";
 
 export default function CTASection() {
   return (
@@ -40,9 +40,9 @@ export default function CTASection() {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="text-xl text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed"
         >
-          Book a free 20-minute strategy call. We&apos;ll look at your current
-          market, identify where the opportunities are, and show you exactly
-          what a Tiny Agent campaign would look like for your area.
+          Pick your goal — more eyes on your name, or more enquiries in your
+          inbox. We&apos;ll build the campaign around it and have you live in
+          your suburb within 24 hours.
         </motion.p>
 
         <motion.div
@@ -52,18 +52,7 @@ export default function CTASection() {
           transition={{ duration: 0.5, delay: 0.15 }}
           className="flex flex-col sm:flex-row gap-4 justify-center"
         >
-          {/* F1: Updated to a proper Calendly booking path — replace with your real slug */}
-          <Link
-            href="https://calendly.com/tinyagent/strategy-call"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-semibold px-8 py-4 rounded-xl transition-all duration-200 shadow-xl shadow-blue-500/30 hover:shadow-blue-500/50 hover:-translate-y-0.5 text-lg"
-          >
-            {/* P9: Consistent CTA label */}
-            Book a Free Strategy Call
-            <ArrowRight size={20} />
-          </Link>
-          {/* F2: Replaced fake placeholder number with real email contact */}
+          <OutcomeButtons size="lg" />
           <a
             href="#"
             onClick={(e) => {

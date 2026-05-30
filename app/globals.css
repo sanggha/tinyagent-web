@@ -33,6 +33,20 @@ html {
   scroll-behavior: smooth;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 /* Gradient text utility — P1: blue→violet→amber keeps saturation throughout */
 .gradient-text {
   background: linear-gradient(90deg, #3B82F6 0%, #8B5CF6 50%, #F59E0B 100%);

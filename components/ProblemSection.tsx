@@ -4,33 +4,18 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 const problems = [
-  {
-    title: "You're invisible to 80% of future sellers",
-    detail: "Most vendors aren't on property portals yet — they're scrolling social media. If you're not there, you don't exist to them.",
-  },
-  {
-    title: "Paying for impressions, not conversations",
-    detail: "Thousands of views. Zero calls. Most real estate advertising is built to look active, not generate leads.",
-  },
-  {
-    title: "Reaching the wrong people at the wrong time",
-    detail: "Broad audiences of 'potential sellers' — not the homeowner two streets over who's ready to list.",
-  },
-  {
-    title: "Generic ads that blend into the background",
-    detail: "A plain photo and a phone number. No targeting, no story, no reason to enquire.",
-  },
-  {
-    title: "No optimisation — same ad, months on end",
-    detail: "Ad fatigue sets in after a few weeks. Results quietly drop to zero while spend keeps running.",
-  },
+  "You're invisible to 80% of future sellers",
+  "Paying for impressions, not conversations",
+  "Reaching the wrong people at the wrong time",
+  "Generic ads that blend into the background",
+  "No optimisation — same ad, months on end",
 ];
 
 export default function ProblemSection() {
   return (
-    <section className="py-24 lg:py-32 bg-slate-50 relative overflow-hidden">
+    <section className="py-16 lg:py-24 bg-slate-50 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
+        <div className="grid lg:grid-cols-2 gap-12 items-start">
 
           {/* Left: Problem list */}
           <div>
@@ -49,41 +34,25 @@ export default function ProblemSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-4xl lg:text-5xl font-bold text-slate-900 mb-4 leading-tight"
+              className="text-4xl lg:text-5xl font-bold text-slate-900 mb-8 leading-tight"
             >
               Most real estate ads
               <br />
               <span className="text-slate-500">never get results.</span>
             </motion.h2>
 
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.15 }}
-              className="text-slate-500 mb-10 text-lg leading-relaxed"
-            >
-              Agents spend thousands every year and struggle to point to a
-              single listing it directly won them. Here&apos;s why.
-            </motion.p>
-
-            <div className="space-y-3">
+            <div className="space-y-2">
               {problems.map((p, i) => (
                 <motion.div
                   key={i}
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: i * 0.08 }}
-                  className="flex gap-4 p-4 rounded-xl bg-white border border-slate-200 shadow-sm hover:shadow-md hover:border-slate-300 transition-all"
+                  transition={{ duration: 0.4, delay: i * 0.07 }}
+                  className="flex items-center gap-3 py-3 border-b border-slate-200 last:border-0"
                 >
-                  <div className="mt-0.5 shrink-0 w-5 h-5 rounded-full bg-slate-200 flex items-center justify-center">
-                    <div className="w-1.5 h-1.5 rounded-full bg-slate-400" />
-                  </div>
-                  <div>
-                    <p className="text-slate-800 font-semibold text-sm">{p.title}</p>
-                    <p className="text-slate-500 text-xs mt-0.5 leading-relaxed">{p.detail}</p>
-                  </div>
+                  <div className="shrink-0 w-1.5 h-1.5 rounded-full bg-slate-400" />
+                  <p className="text-slate-700 font-medium text-sm">{p}</p>
                 </motion.div>
               ))}
             </div>
@@ -107,8 +76,8 @@ export default function ProblemSection() {
               <div className="p-4 border-b border-slate-100 flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full overflow-hidden bg-slate-100 shrink-0">
                   <Image
-                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=40&h=40&fit=crop&crop=faces&q=60"
-                    alt="Generic agent"
+                    src="/images/generic-agent.jpg"
+                    alt="Generic real estate agent in a typical low-impact ad"
                     width={40}
                     height={40}
                     className="w-full h-full object-cover grayscale opacity-60"
@@ -125,8 +94,8 @@ export default function ProblemSection() {
               <div className="bg-gradient-to-br from-blue-50 to-slate-100 flex flex-col items-center justify-center p-8">
                 <div className="w-20 h-20 rounded-full overflow-hidden border-4 border-slate-200 mb-3">
                   <Image
-                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=96&h=96&fit=crop&crop=faces&q=60"
-                    alt="Generic agent"
+                    src="/images/generic-agent.jpg"
+                    alt="Generic real estate agent in a typical low-impact ad"
                     width={80}
                     height={80}
                     className="w-full h-full object-cover grayscale opacity-60"

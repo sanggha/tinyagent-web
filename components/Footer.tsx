@@ -7,7 +7,6 @@ const navLinks = [
   { label: "How It Works", href: "/#how-it-works" },
   { label: "What You Get", href: "/#features" },
   { label: "Results", href: "/#results" },
-  { label: "Blog", href: "/blog" },
   { label: "FAQ", href: "/#faq" },
 ];
 
@@ -78,12 +77,19 @@ export default function Footer() {
                 </li>
               ))}
               <li>
-                {/* P9: Consistent CTA label site-wide */}
                 <Link
-                  href="/#contact"
+                  href="/#get-views"
                   className="text-gray-500 hover:text-gray-300 text-sm transition-colors"
                 >
-                  Book a Free Strategy Call
+                  Get Views
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/#get-leads"
+                  className="text-gray-500 hover:text-gray-300 text-sm transition-colors"
+                >
+                  Get Leads
                 </Link>
               </li>
             </ul>

@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import OutcomeButtons from "./OutcomeButtons";
 
 const pillars = [
   {
@@ -141,12 +142,9 @@ export default function SolutionSteps() {
               We handle the creative, the targeting, the spend, and the reporting. You just take the calls.
             </p>
           </div>
-          <a
-            href="#contact"
-            className="shrink-0 inline-flex items-center gap-2 bg-white hover:bg-blue-50 text-blue-600 text-sm font-semibold px-5 py-3 rounded-xl transition-colors"
-          >
-            Get started →
-          </a>
+          <div className="shrink-0">
+            <OutcomeButtons size="sm" variant="onBlue" />
+          </div>
         </motion.div>
       </div>
     </section>

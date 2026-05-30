@@ -8,8 +8,8 @@ const included = [
     body: "We identify every homeowner within your target area using location, property ownership, and behavioural data. No wasted spend on people outside your market.",
   },
   {
-    title: "Video ads that stop the scroll",
-    body: "Short-form video ads built around your name, your brand, and a message that speaks directly to homeowners in your area — designed to drive enquiries, not just views.",
+    title: "Ads that stop the scroll",
+    body: "Scroll-stopping creative built around your name, your brand, and a message that speaks directly to homeowners in your area — designed to drive enquiries, not just views.",
   },
   {
     title: "We run it all — you never touch a dashboard",
