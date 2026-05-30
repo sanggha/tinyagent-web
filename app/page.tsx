@@ -24,10 +24,10 @@ export default function Home() {
     <main className="relative">
       <Navigation />
       <Hero />
+      <AdShowcase />
       <ProofBar />
       <ProblemSection />
       <SolutionSteps />
-      <AdShowcase />
       <Features />
       <Testimonials />
       <Pricing />
