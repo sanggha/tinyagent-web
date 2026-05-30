@@ -62,11 +62,10 @@ export const metadata: Metadata = {
       "Precision digital advertising that puts your name in front of every homeowner in your area. Leads delivered to your inbox. Live within 24 hours.",
     images: [
       {
-        // TODO: Replace /logo.png with a proper 1200×630 og-image.png once created
-        url: `${siteUrl}/logo.png`,
-        width: 1024,
-        height: 1024,
-        alt: "Tiny Agent — Real Estate Advertising",
+        url: `${siteUrl}/og-image.png`,
+        width: 1200,
+        height: 630,
+        alt: "Tiny Agent — Real Estate Advertising for Australian Agents",
       },
     ],
   },
@@ -75,7 +74,7 @@ export const metadata: Metadata = {
     title: "Tiny Agent | Real Estate Advertising for Australian Agents",
     description:
       "Precision digital advertising for real estate agents. Leads to your inbox. Australia-wide.",
-    images: [`${siteUrl}/logo.png`],
+    images: [`${siteUrl}/og-image.png`],
     creator: "@tinyagentio",
   },
   alternates: {
