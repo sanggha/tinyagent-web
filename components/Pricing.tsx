@@ -109,7 +109,7 @@ export default function Pricing() {
         </div>
 
         {/* Package cards */}
-        <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto items-start">
+        <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto items-stretch">
           {packages.map((pkg, i) => {
             const isAmber = pkg.accent === "amber";
             return (
