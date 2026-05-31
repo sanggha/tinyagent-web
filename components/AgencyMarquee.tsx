@@ -11,16 +11,15 @@ type Logo = {
 };
 
 const logos: Logo[] = [
-  { src: "/images/logos/ray-white.svg",       alt: "Ray White",        width: 220, height: 56 },
-  { src: "/images/logos/harcourts.svg",        alt: "Harcourts",        width: 220, height: 48 },
-  { src: "/images/logos/lj-hooker.svg",        alt: "LJ Hooker",        width: 180, height: 48 },
-  { src: "/images/logos/mcgrath.svg",          alt: "McGrath",          width: 180, height: 56 },
-  { src: "/images/logos/century21.png",        alt: "Century 21",       width: 220, height: 36 },
-  { src: "/images/logos/raine-horne.svg",      alt: "Raine & Horne",    width: 220, height: 56 },
-  { src: "/images/logos/barry-plant.png",      alt: "Barry Plant",      width: 200, height: 40 },
-  { src: "/images/logos/first-national.svg",   alt: "First National",   width: 200, height: 56 },
-  { src: "/images/logos/remax.svg",            alt: "RE/MAX",           width: 160, height: 56 },
-  { src: "/images/logos/nelson-alexander.svg", alt: "Nelson Alexander", width: 200, height: 56 },
+  { src: "/images/logos/ray-white-logo.png",   alt: "Ray White",        width: 120, height: 120 },
+  { src: "/images/logos/harcourts.svg",        alt: "Harcourts",        width: 220, height: 48  },
+  { src: "/images/logos/lj-hooker.svg",        alt: "LJ Hooker",        width: 180, height: 48  },
+  { src: "/images/logos/century21.png",        alt: "Century 21",       width: 220, height: 36  },
+  { src: "/images/logos/raine-horne.png",      alt: "Raine & Horne",    width: 120, height: 120 },
+  { src: "/images/logos/barry-plant.png",      alt: "Barry Plant",      width: 200, height: 40  },
+  { src: "/images/logos/first-national.png",   alt: "First National",   width: 240, height: 40  },
+  { src: "/images/logos/remax.svg",            alt: "RE/MAX",           width: 160, height: 56  },
+  { src: "/images/logos/nelson-alexander.svg", alt: "Nelson Alexander", width: 200, height: 56  },
 ];
 
 // Duplicate for seamless infinite loop
