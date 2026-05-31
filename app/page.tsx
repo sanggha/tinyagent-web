@@ -5,6 +5,7 @@ import ProofBar from "@/components/ProofBar";
 import ProblemSection from "@/components/ProblemSection";
 import SolutionSteps from "@/components/SolutionSteps";
 import AdShowcase from "@/components/AdShowcase";
+import AgencyMarquee from "@/components/AgencyMarquee";
 import Features from "@/components/Features";
 import Testimonials from "@/components/Testimonials";
 import Pricing from "@/components/Pricing";
@@ -25,6 +26,7 @@ export default function Home() {
       <Navigation />
       <Hero />
       <AdShowcase />
+      <AgencyMarquee />
       <ProofBar />
       <ProblemSection />
       <SolutionSteps />
