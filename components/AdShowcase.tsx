@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 
 const ads = [
@@ -21,6 +22,52 @@ const ads = [
     alt: "Facebook ad targeting homeowners thinking of selling in their suburb",
   },
 ];
+
+type Ad = { src: string; alt: string };
+
+// Per-phone scroll parallax: each column drifts at a different rate as the
+// section moves through the viewport, for a layered, premium depth effect.
+// Scroll-linked transforms are disabled under reduced motion.
+const depths = [56, -44, 36, -56];
+
+function AdPhone({ ad, i }: { ad: Ad; i: number }) {
+  const reduce = useReducedMotion();
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+  const depth = depths[i % depths.length];
+  const yRaw = useTransform(scrollYProgress, [0, 1], [depth, -depth]);
+  const y = reduce ? 0 : yRaw;
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 28 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay: i * 0.1 }}
+      className="flex justify-center"
+    >
+      <motion.div
+        style={{ y }}
+        whileHover={{ scale: 1.04 }}
+        transition={{ type: "spring", stiffness: 220, damping: 20 }}
+        className="w-full"
+      >
+        <Image
+          src={ad.src}
+          width={871}
+          height={1844}
+          alt={ad.alt}
+          priority={i === 0}
+          className="w-full h-auto object-contain drop-shadow-xl"
+        />
+      </motion.div>
+    </motion.div>
+  );
+}
 
 export default function AdShowcase() {
   return (
@@ -61,23 +108,7 @@ export default function AdShowcase() {
 
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
           {ads.map((ad, i) => (
-            <motion.div
-              key={ad.src}
-              initial={{ opacity: 0, y: 28 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="flex justify-center"
-            >
-              <Image
-                src={ad.src}
-                width={871}
-                height={1844}
-                alt={ad.alt}
-                priority={i === 0}
-                className="w-full h-auto object-contain drop-shadow-xl"
-              />
-            </motion.div>
+            <AdPhone key={ad.src} ad={ad} i={i} />
           ))}
         </div>
 

@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import TiltCard from "./TiltCard";
 
 const included = [
   {
@@ -83,15 +84,20 @@ export default function Features() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.07 }}
-                className="group flex gap-5 p-5 rounded-xl bg-white border border-slate-200 shadow-sm hover:shadow-md hover:border-blue-200 transition-all duration-300"
               >
-                <div className="shrink-0 w-9 h-9 rounded-xl bg-blue-600 flex items-center justify-center mt-0.5 group-hover:scale-110 transition-transform">
-                  <span className="text-white font-bold text-sm">{String(i + 1).padStart(2, "0")}</span>
-                </div>
-                <div>
-                  <h3 className="text-slate-900 font-semibold text-base mb-1.5">{item.title}</h3>
-                  <p className="text-slate-500 text-sm leading-relaxed">{item.body}</p>
-                </div>
+                <TiltCard
+                  max={8}
+                  glareColor="rgba(37,99,235,0.10)"
+                  className="group flex gap-5 p-5 rounded-xl bg-white border border-slate-200 shadow-sm hover:shadow-md hover:border-blue-200 transition-all duration-300"
+                >
+                  <div className="shrink-0 w-9 h-9 rounded-xl bg-blue-600 flex items-center justify-center mt-0.5 group-hover:scale-110 transition-transform">
+                    <span className="text-white font-bold text-sm">{String(i + 1).padStart(2, "0")}</span>
+                  </div>
+                  <div>
+                    <h3 className="text-slate-900 font-semibold text-base mb-1.5">{item.title}</h3>
+                    <p className="text-slate-500 text-sm leading-relaxed">{item.body}</p>
+                  </div>
+                </TiltCard>
               </motion.div>
             ))}
           </div>

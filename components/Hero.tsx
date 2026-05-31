@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { motion, cubicBezier, useScroll, useTransform } from "framer-motion";
+import { motion, cubicBezier, useScroll, useTransform, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import OutcomeButtons from "./OutcomeButtons";
 
@@ -29,10 +29,15 @@ const AGENTS = [
 ];
 
 export default function Hero() {
+  const reduce = useReducedMotion();
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "18%"]);
-  const opacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
+  const yRaw = useTransform(scrollYProgress, [0, 1], ["0%", "26%"]);
+  const scaleRaw = useTransform(scrollYProgress, [0, 1], [1, 0.94]);
+  const opacityRaw = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
+  const y = reduce ? "0%" : yRaw;
+  const scale = reduce ? 1 : scaleRaw;
+  const opacity = reduce ? 1 : opacityRaw;
 
   return (
     <section
@@ -57,7 +62,7 @@ export default function Hero() {
 
       {/* Scroll-parallax content wrapper */}
       <motion.div
-        style={{ y, opacity }}
+        style={{ y, scale, opacity }}
         className="relative z-10 w-full max-w-6xl mx-auto px-6 sm:px-10 lg:px-16 pt-28 pb-24 flex flex-col items-center text-center"
       >
         {/* Badge */}

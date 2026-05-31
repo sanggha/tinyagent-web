@@ -116,16 +116,20 @@ export default function Navigation() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`text-sm transition-colors duration-200 ${
+                  className={`group/nav relative text-sm transition-colors duration-200 ${
                     isActive
                       ? "text-white font-medium"
                       : "text-gray-300 hover:text-white"
                   }`}
                 >
                   {link.label}
-                  {isActive && (
-                    <span className="block h-0.5 bg-blue-500 rounded-full mt-0.5" />
-                  )}
+                  <span
+                    className={`absolute -bottom-1.5 left-0 right-0 h-0.5 rounded-full bg-blue-500 origin-left transition-transform duration-300 ease-out ${
+                      isActive
+                        ? "scale-x-100"
+                        : "scale-x-0 group-hover/nav:scale-x-100"
+                    }`}
+                  />
                 </Link>
               );
             })}

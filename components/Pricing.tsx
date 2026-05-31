@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight, MapPin, Zap, UserCheck, Lock, Megaphone, Target } from "lucide-react";
+import TiltCard from "./TiltCard";
 
 // Two goal-based packages (not tiers). Public copy shows no dollar figures.
 // [X]/[Y] highlight numbers are placeholders — confirm real guaranteed counts before launch.
@@ -120,10 +121,15 @@ export default function Pricing() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className={`relative scroll-mt-28 rounded-2xl p-8 border flex flex-col bg-white/[0.03] ${
-                  isAmber ? "border-amber-400/30" : "border-blue-500/30"
-                }`}
+                className="scroll-mt-28 flex"
               >
+                <TiltCard
+                  max={10}
+                  glareColor={isAmber ? "rgba(252,211,77,0.22)" : "rgba(147,197,253,0.25)"}
+                  className={`relative w-full rounded-2xl p-8 border flex flex-col bg-white/[0.03] ${
+                    isAmber ? "border-amber-400/30" : "border-blue-500/30"
+                  }`}
+                >
                 <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-5 ${
                   isAmber ? "bg-amber-400/10" : "bg-blue-500/10"
                 }`}>
@@ -165,6 +171,7 @@ export default function Pricing() {
                   Claim Your Suburb
                   <ArrowRight size={16} />
                 </Link>
+                </TiltCard>
               </motion.div>
             );
           })}

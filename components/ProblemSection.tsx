@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import TiltCard from "./TiltCard";
 
 const problems = [
   "You're invisible to 80% of future sellers",
@@ -71,7 +72,11 @@ export default function ProblemSection() {
             </p>
 
             {/* Facebook-style ad card — muted/desaturated */}
-            <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-lg bg-white">
+            <TiltCard
+              max={10}
+              glareColor="rgba(37,99,235,0.10)"
+              className="rounded-2xl overflow-hidden border border-slate-200 shadow-lg bg-white"
+            >
               {/* Post header */}
               <div className="p-4 border-b border-slate-100 flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full overflow-hidden bg-slate-100 shrink-0">
@@ -137,7 +142,7 @@ export default function ProblemSection() {
                 </div>
                 <p className="text-slate-400 text-[10px] text-center mt-3">$800 spent · 0 vendor enquiries · 3 months</p>
               </div>
-            </div>
+            </TiltCard>
           </motion.div>
 
         </div>

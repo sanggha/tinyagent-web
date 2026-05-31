@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { Eye, Target } from "lucide-react";
+import Magnetic from "./Magnetic";
 
 type Props = {
   size?: "sm" | "md" | "lg";
@@ -27,20 +28,24 @@ export default function OutcomeButtons({ size = "md", variant = "solid", classNa
 
   return (
     <div className={`flex flex-col sm:flex-row gap-3 ${className}`}>
-      <Link
-        href="/#get-views"
-        className={`inline-flex items-center justify-center font-semibold rounded-xl transition-all duration-200 hover:-translate-y-0.5 ${s} ${views}`}
-      >
-        <Eye size={icon} />
-        Get Views
-      </Link>
-      <Link
-        href="/#get-leads"
-        className={`inline-flex items-center justify-center font-semibold rounded-xl transition-all duration-200 hover:-translate-y-0.5 ${s} ${leads}`}
-      >
-        <Target size={icon} />
-        Get Leads
-      </Link>
+      <Magnetic className="w-full sm:w-auto">
+        <Link
+          href="/#get-views"
+          className={`inline-flex w-full items-center justify-center font-semibold rounded-xl transition-all duration-200 hover:-translate-y-0.5 ${s} ${views}`}
+        >
+          <Eye size={icon} />
+          Get Views
+        </Link>
+      </Magnetic>
+      <Magnetic className="w-full sm:w-auto">
+        <Link
+          href="/#get-leads"
+          className={`inline-flex w-full items-center justify-center font-semibold rounded-xl transition-all duration-200 hover:-translate-y-0.5 ${s} ${leads}`}
+        >
+          <Target size={icon} />
+          Get Leads
+        </Link>
+      </Magnetic>
     </div>
   );
 }

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import TiltCard from "./TiltCard";
 
 const testimonials = [
   {
@@ -87,8 +88,13 @@ export default function Testimonials() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="relative p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col"
+              className="flex"
             >
+              <TiltCard
+                max={9}
+                glareColor="rgba(37,99,235,0.10)"
+                className="relative w-full p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col"
+              >
               {/* Stars */}
               <div className="flex gap-1 mb-4">
                 {[...Array(5)].map((_, j) => (
@@ -131,6 +137,7 @@ export default function Testimonials() {
                   <p className="text-slate-400 text-xs">{t.agency}</p>
                 </div>
               </div>
+              </TiltCard>
             </motion.div>
           ))}
         </div>

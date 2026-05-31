@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import OutcomeButtons from "./OutcomeButtons";
+import TiltCard from "./TiltCard";
 
 const pillars = [
   {
@@ -27,24 +28,27 @@ const pillars = [
   },
 ];
 
-const accentMap: Record<string, { num: string; badge: string; border: string; topBar: string }> = {
+const accentMap: Record<string, { num: string; badge: string; border: string; topBar: string; glare: string }> = {
   blue: {
     num: "text-blue-500",
     badge: "bg-blue-50 text-blue-600 border border-blue-100",
     border: "hover:border-blue-200",
     topBar: "bg-blue-500",
+    glare: "rgba(37,99,235,0.10)",
   },
   amber: {
     num: "text-amber-500",
     badge: "bg-amber-50 text-amber-600 border border-amber-100",
     border: "hover:border-amber-200",
     topBar: "bg-amber-400",
+    glare: "rgba(245,158,11,0.12)",
   },
   violet: {
     num: "text-violet-500",
     badge: "bg-violet-50 text-violet-600 border border-violet-100",
     border: "hover:border-violet-200",
     topBar: "bg-violet-500",
+    glare: "rgba(139,92,246,0.10)",
   },
 };
 
@@ -100,8 +104,13 @@ export default function SolutionSteps() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.12 }}
-                className={`relative p-8 rounded-2xl bg-white border border-slate-200 shadow-sm ${c.border} hover:shadow-md transition-all duration-300 group overflow-hidden`}
+                className="flex"
               >
+                <TiltCard
+                  max={10}
+                  glareColor={c.glare}
+                  className={`relative w-full p-8 rounded-2xl bg-white border border-slate-200 shadow-sm ${c.border} hover:shadow-md transition-all duration-300 group overflow-hidden`}
+                >
                 {/* Coloured top accent bar */}
                 <div className={`absolute top-0 left-0 right-0 h-1 ${c.topBar}`} />
 
@@ -121,6 +130,7 @@ export default function SolutionSteps() {
                 <div className={`inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-full ${c.badge}`}>
                   {p.highlight}
                 </div>
+                </TiltCard>
               </motion.div>
             );
           })}
