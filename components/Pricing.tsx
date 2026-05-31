@@ -8,7 +8,7 @@ import { ArrowRight, MapPin, Zap, UserCheck, Lock, Megaphone, Target } from "luc
 // [X]/[Y] highlight numbers are placeholders — confirm real guaranteed counts before launch.
 const packages = [
   {
-    name: "Market Presence",
+    name: "Get Views",
     anchor: "get-views",
     tagline: "Be the name every homeowner already knows.",
     focus: "Built for maximum reach and top-of-mind awareness across your suburb.",
@@ -28,7 +28,7 @@ const packages = [
     ],
   },
   {
-    name: "Lead Engine",
+    name: "Get Leads",
     anchor: "get-leads",
     tagline: "Turn attention into booked appraisals.",
     focus: "Built to target the homeowners most likely to sell — and drive real enquiries.",
