@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import { motion, cubicBezier, useScroll, useTransform, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import OutcomeButtons from "./OutcomeButtons";
+import ParticleFieldBg from "./hero-bg/ParticleFieldBg";
 
 const ease = cubicBezier(0.22, 1, 0.36, 1);
 
@@ -44,40 +45,27 @@ export default function Hero() {
       ref={ref}
       className="relative bg-[#0A0F1E] min-h-screen flex flex-col items-center justify-center overflow-hidden"
     >
-      {/* Ambient glows */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-blue-700/10 rounded-full blur-[120px]" />
-        <div className="absolute bottom-0 left-0 w-[500px] h-[400px] bg-violet-700/8 rounded-full blur-[100px]" />
-        <div className="absolute bottom-0 right-0 w-[400px] h-[300px] bg-blue-600/8 rounded-full blur-[80px]" />
-      </div>
-
-      {/* Subtle dot grid */}
-      <div
-        className="absolute inset-0 opacity-[0.035]"
-        style={{
-          backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.8) 1px, transparent 1px)",
-          backgroundSize: "36px 36px",
-        }}
-      />
+      {/* Interactive particle field */}
+      <ParticleFieldBg />
 
       {/* Scroll-parallax content wrapper */}
       <motion.div
         style={{ y, scale, opacity }}
-        className="relative z-10 w-full max-w-6xl mx-auto px-6 sm:px-10 lg:px-16 pt-28 pb-24 flex flex-col items-center text-center"
+        className="relative z-10 w-full max-w-6xl mx-auto px-5 sm:px-10 lg:px-16 pt-24 pb-20 sm:pt-28 sm:pb-24 flex flex-col items-center text-center"
       >
         {/* Badge */}
         <motion.div
           variants={fade(0.1)}
           initial="hidden"
           animate="show"
-          className="inline-flex items-center gap-2 bg-white/5 border border-white/10 text-blue-300 text-xs font-semibold px-4 py-1.5 rounded-full mb-12 tracking-wide"
+          className="inline-flex items-center gap-2 bg-white/5 border border-white/10 text-blue-300 text-xs font-semibold px-4 py-1.5 rounded-full mb-8 sm:mb-12 tracking-wide"
         >
           <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse" />
           Real estate advertising, done for you
         </motion.div>
 
         {/* Headline — word by word */}
-        <h1 className="text-[clamp(3rem,8vw,7rem)] font-bold text-white leading-[1.02] tracking-tight mb-8">
+        <h1 className="text-[clamp(2.75rem,8vw,7rem)] font-bold text-white leading-[1.04] sm:leading-[1.02] tracking-tight mb-6 sm:mb-8">
           {["Your", "Face."].map((w, i) => (
             <motion.span
               key={w + i}
@@ -131,7 +119,7 @@ export default function Hero() {
           variants={fade(0.65)}
           initial="hidden"
           animate="show"
-          className="text-lg sm:text-xl text-slate-400 leading-relaxed max-w-2xl mb-10"
+          className="text-base sm:text-xl text-slate-400 leading-relaxed max-w-2xl mb-8 sm:mb-10"
         >
           Precision ads that put your name in front of every homeowner
           in your area — before they even start thinking about selling.
@@ -142,7 +130,7 @@ export default function Hero() {
           variants={fade(0.8)}
           initial="hidden"
           animate="show"
-          className="mb-14"
+          className="mb-10 sm:mb-14"
         >
           <OutcomeButtons size="lg" className="justify-center" />
         </motion.div>
