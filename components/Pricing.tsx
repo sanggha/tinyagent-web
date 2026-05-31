@@ -159,9 +159,7 @@ export default function Pricing() {
                 </ul>
 
                 <Link
-                  href="https://calendly.com/tinyagent/strategy-call"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href={`/claim?package=${isAmber ? "leads" : "views"}`}
                   className={`mt-8 inline-flex w-full justify-center items-center gap-2 font-semibold px-5 py-3.5 rounded-xl transition-all duration-200 text-sm ${
                     isAmber
                       ? "bg-amber-400 hover:bg-amber-300 text-[#0A0F1E] shadow-lg shadow-amber-500/20"
