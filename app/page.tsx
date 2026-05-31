@@ -6,7 +6,6 @@ import ProblemSection from "@/components/ProblemSection";
 import AdShowcase from "@/components/AdShowcase";
 import AgencyMarquee from "@/components/AgencyMarquee";
 import Features from "@/components/Features";
-import Testimonials from "@/components/Testimonials";
 import Pricing from "@/components/Pricing";
 import FAQ from "@/components/FAQ";
 import CTASection from "@/components/CTASection";
@@ -29,7 +28,6 @@ export default function Home() {
       <ProofBar />
       <ProblemSection />
       <Features />
-      <Testimonials />
       <Pricing />
       <FAQ />
       <CTASection />

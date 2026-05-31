@@ -9,7 +9,7 @@ import OutcomeButtons from "./OutcomeButtons";
 const navLinks = [
   { label: "What You Get", href: "/#features" },
   { label: "Showcase", href: "/#showcase" },
-  { label: "Pricing", href: "/#pricing" },
+  { label: "Packages", href: "/#pricing" },
   { label: "FAQ", href: "/#faq" },
 ];
 

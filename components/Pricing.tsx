@@ -86,7 +86,7 @@ export default function Pricing() {
             transition={{ duration: 0.5 }}
             className="text-amber-400 text-sm font-semibold uppercase tracking-wider mb-4"
           >
-            Pricing
+            Packages
           </motion.p>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}

@@ -1,8 +1,24 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
 import Image from "next/image";
+
+// Parallax is a desktop-only flourish: below 1024px the grid is 2-up and the
+// vertically stacked phones would drift into each other. Gate it to the lg
+// breakpoint that drives the single-row 4-up layout. SSR-safe (starts false).
+function useIsDesktop() {
+  const [isDesktop, setIsDesktop] = useState(false);
+  useEffect(() => {
+    if (typeof window === "undefined" || !window.matchMedia) return;
+    const mq = window.matchMedia("(min-width: 1024px)");
+    const update = () => setIsDesktop(mq.matches);
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
+  }, []);
+  return isDesktop;
+}
 
 const ads = [
   {
@@ -30,7 +46,7 @@ type Ad = { src: string; alt: string };
 // Scroll-linked transforms are disabled under reduced motion.
 const depths = [56, -44, 36, -56];
 
-function AdPhone({ ad, i }: { ad: Ad; i: number }) {
+function AdPhone({ ad, i, parallax }: { ad: Ad; i: number; parallax: boolean }) {
   const reduce = useReducedMotion();
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -39,7 +55,7 @@ function AdPhone({ ad, i }: { ad: Ad; i: number }) {
   });
   const depth = depths[i % depths.length];
   const yRaw = useTransform(scrollYProgress, [0, 1], [depth, -depth]);
-  const y = reduce ? 0 : yRaw;
+  const y = reduce || !parallax ? 0 : yRaw;
 
   return (
     <motion.div
@@ -70,6 +86,7 @@ function AdPhone({ ad, i }: { ad: Ad; i: number }) {
 }
 
 export default function AdShowcase() {
+  const isDesktop = useIsDesktop();
   return (
     <section id="showcase" className="py-24 lg:py-32 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -108,7 +125,7 @@ export default function AdShowcase() {
 
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
           {ads.map((ad, i) => (
-            <AdPhone key={ad.src} ad={ad} i={i} />
+            <AdPhone key={ad.src} ad={ad} i={i} parallax={isDesktop} />
           ))}
         </div>
 
