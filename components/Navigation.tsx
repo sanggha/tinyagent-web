@@ -7,7 +7,6 @@ import { Menu, X } from "lucide-react";
 import OutcomeButtons from "./OutcomeButtons";
 
 const navLinks = [
-  { label: "How It Works", href: "/#how-it-works" },
   { label: "What You Get", href: "/#features" },
   { label: "Showcase", href: "/#showcase" },
   { label: "Pricing", href: "/#pricing" },

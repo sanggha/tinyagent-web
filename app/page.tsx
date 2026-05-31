@@ -3,7 +3,6 @@ import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import ProofBar from "@/components/ProofBar";
 import ProblemSection from "@/components/ProblemSection";
-import SolutionSteps from "@/components/SolutionSteps";
 import AdShowcase from "@/components/AdShowcase";
 import AgencyMarquee from "@/components/AgencyMarquee";
 import Features from "@/components/Features";
@@ -29,7 +28,6 @@ export default function Home() {
       <AgencyMarquee />
       <ProofBar />
       <ProblemSection />
-      <SolutionSteps />
       <Features />
       <Testimonials />
       <Pricing />
