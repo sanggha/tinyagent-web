@@ -32,9 +32,9 @@ const included = [
 
 export default function Features() {
   return (
-    <section id="features" className="py-24 lg:py-32 bg-slate-50 relative overflow-hidden">
+    <section id="features" className="py-16 lg:py-28 bg-slate-50 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
 
           {/* Left: heading + summary checklist (sticky on desktop) */}
           <motion.div
@@ -47,12 +47,12 @@ export default function Features() {
             <p className="text-blue-600 text-sm font-semibold uppercase tracking-wider mb-4">
               What you get
             </p>
-            <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-6 leading-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-5 sm:mb-6 leading-tight">
               Everything done.
               <br />
               <span className="gradient-text">Nothing to manage.</span>
             </h2>
-            <p className="text-slate-500 text-lg leading-relaxed mb-8">
+            <p className="text-slate-500 text-base sm:text-lg leading-relaxed mb-6 sm:mb-8">
               You focus on meeting vendors and closing listings. We run the
               entire advertising operation in the background.
             </p>

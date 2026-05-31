@@ -69,7 +69,7 @@ function Check({ accent }: { accent: "blue" | "amber" }) {
 
 export default function Pricing() {
   return (
-    <section id="pricing" className="py-24 lg:py-32 relative overflow-hidden bg-[#070b16]">
+    <section id="pricing" className="py-16 lg:py-28 relative overflow-hidden bg-[#070b16]">
       {/* Ambient glows */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl" />
@@ -78,7 +78,7 @@ export default function Pricing() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-16">
+        <div className="text-center max-w-2xl mx-auto mb-10 lg:mb-16">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -93,7 +93,7 @@ export default function Pricing() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-4xl lg:text-5xl font-bold text-white leading-tight"
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight"
           >
             Two ways to <span className="gradient-text">own your market.</span>
           </motion.h2>
@@ -102,7 +102,7 @@ export default function Pricing() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.15 }}
-            className="text-gray-400 text-lg mt-4"
+            className="text-gray-400 text-base sm:text-lg mt-3"
           >
             Go wide for maximum visibility, or go sharp for maximum enquiries.
             Both run from your own profile, fully done-for-you.
@@ -126,7 +126,7 @@ export default function Pricing() {
                 <TiltCard
                   max={10}
                   glareColor={isAmber ? "rgba(252,211,77,0.22)" : "rgba(147,197,253,0.25)"}
-                  className={`relative w-full rounded-2xl p-8 border flex flex-col bg-white/[0.03] ${
+                  className={`relative w-full rounded-2xl p-5 sm:p-8 border flex flex-col bg-white/[0.03] ${
                     isAmber ? "border-amber-400/30" : "border-blue-500/30"
                   }`}
                 >
@@ -183,7 +183,7 @@ export default function Pricing() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="mt-12 flex flex-wrap justify-center gap-x-8 gap-y-4"
+          className="mt-8 lg:mt-12 flex flex-wrap justify-center gap-x-6 gap-y-3"
         >
           {offerChips.map((chip) => (
             <div key={chip.label} className="flex items-center gap-2 text-gray-300 text-sm">

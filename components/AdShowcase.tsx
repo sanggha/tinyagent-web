@@ -88,10 +88,10 @@ function AdPhone({ ad, i, parallax }: { ad: Ad; i: number; parallax: boolean }) 
 export default function AdShowcase() {
   const isDesktop = useIsDesktop();
   return (
-    <section id="showcase" className="py-24 lg:py-32 bg-white">
+    <section id="showcase" className="py-16 lg:py-28 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        <div className="mb-14 text-center max-w-2xl mx-auto">
+        <div className="mb-10 lg:mb-14 text-center max-w-2xl mx-auto">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -106,7 +106,7 @@ export default function AdShowcase() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight"
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight"
           >
             Your ad. <span className="gradient-text">Their feed.</span>
             <br />Every suburb.
@@ -116,7 +116,7 @@ export default function AdShowcase() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.15 }}
-            className="text-gray-500 text-lg mt-4"
+            className="text-gray-500 text-base sm:text-lg mt-3"
           >
             Scroll-stopping ads that put your name directly into
             homeowners&apos; feeds across Australia.

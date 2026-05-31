@@ -16,7 +16,7 @@ export default function ProblemSection() {
   return (
     <section className="py-12 lg:py-16 bg-slate-50 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-10 items-start">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-10 items-start">
 
           {/* Left: Problem list */}
           <div>

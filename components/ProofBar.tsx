@@ -69,12 +69,12 @@ function CountUp({ target, suffix = "" }: { target: number; suffix?: string }) {
 
 export default function ProofBar() {
   return (
-    <section className="py-16 bg-white border-y border-slate-100">
+    <section className="py-12 lg:py-16 bg-white border-y border-slate-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-0 lg:divide-x divide-slate-200">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-0 lg:divide-x divide-slate-200">
           {stats.map((stat, i) => (
             <div key={i} className="text-center lg:px-10">
-              <div className="text-4xl lg:text-5xl font-black text-slate-900 mb-2 tabular-nums tracking-tight">
+              <div className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 mb-2 tabular-nums tracking-tight">
                 <CountUp target={stat.value} suffix={stat.suffix} />
               </div>
               <p className="text-sm text-slate-500 leading-snug">{stat.label}</p>

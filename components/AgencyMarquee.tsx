@@ -28,8 +28,8 @@ const track = [...logos, ...logos];
 
 export default function AgencyMarquee() {
   return (
-    <section className="py-16 lg:py-20 bg-[#0A0F1E] border-y border-white/[0.06] overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10 text-center">
+    <section className="py-12 lg:py-20 bg-[#0A0F1E] border-y border-white/[0.06] overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6 lg:mb-10 text-center">
         <motion.p
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -44,7 +44,7 @@ export default function AgencyMarquee() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="text-white text-2xl lg:text-3xl font-bold mt-3"
+          className="text-white text-xl sm:text-2xl lg:text-3xl font-bold mt-3"
         >
           Agents from Australia&apos;s top agencies trust Tiny Agent.
         </motion.p>

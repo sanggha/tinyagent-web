@@ -6,7 +6,7 @@ import OutcomeButtons from "./OutcomeButtons";
 
 export default function CTASection() {
   return (
-    <section id="contact" className="py-24 lg:py-32 relative overflow-hidden">
+    <section id="contact" className="py-16 lg:py-28 relative overflow-hidden">
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-950/60 via-[#0A0F1E] to-[#0A0F1E]" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-3xl" />
@@ -26,7 +26,7 @@ export default function CTASection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight"
+          className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white mb-5 sm:mb-6 leading-tight"
         >
           Ready to own
           <br />
@@ -38,7 +38,7 @@ export default function CTASection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="text-xl text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed"
+          className="text-base sm:text-xl text-gray-400 mb-8 sm:mb-10 max-w-2xl mx-auto leading-relaxed"
         >
           Pick your goal — more eyes on your name, or more enquiries in your
           inbox. We&apos;ll build the campaign around it and have you live in

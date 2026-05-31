@@ -43,9 +43,9 @@ export default function FAQ() {
   const [open, setOpen] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="py-24 lg:py-32 bg-slate-50 relative overflow-hidden">
+    <section id="faq" className="py-16 lg:py-28 bg-slate-50 relative overflow-hidden">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <div className="text-center mb-10 lg:mb-16">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -60,7 +60,7 @@ export default function FAQ() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-4xl lg:text-5xl font-bold text-slate-900 mb-4"
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-4"
           >
             Questions agents ask
           </motion.h2>
