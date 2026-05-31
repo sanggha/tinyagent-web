@@ -3,22 +3,20 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-// `text` logos render as a styled wordmark instead of an image — used for
-// brands whose square icon assets read too small/illegibly in the row.
 type Logo = {
   alt: string;
-  src?: string;
-  width?: number;
-  height?: number;
-  text?: string;
+  src: string;
+  width: number;
+  height: number;
+  imgClass?: string;
 };
 
 const logos: Logo[] = [
-  { text: "Ray White",                         alt: "Ray White"        },
+  { src: "/images/logos/ray-white-logo.png",   alt: "Ray White",        width: 888, height: 887, imgClass: "h-14 w-auto object-contain" },
   { src: "/images/logos/harcourts.svg",        alt: "Harcourts",        width: 220, height: 48  },
   { src: "/images/logos/lj-hooker.svg",        alt: "LJ Hooker",        width: 180, height: 48  },
   { src: "/images/logos/century21.png",        alt: "Century 21",       width: 220, height: 36  },
-  { text: "Raine & Horne",                      alt: "Raine & Horne"    },
+  { src: "/images/logos/raine-horne.png",      alt: "Raine & Horne",    width: 600, height: 600, imgClass: "h-14 w-auto object-contain" },
   { src: "/images/logos/barry-plant.png",      alt: "Barry Plant",      width: 200, height: 40  },
   { src: "/images/logos/first-national.png",   alt: "First National",   width: 240, height: 40  },
   { src: "/images/logos/remax.svg",            alt: "RE/MAX",           width: 160, height: 56  },
@@ -72,20 +70,14 @@ export default function AgencyMarquee() {
               key={`${logo.alt}-${i}`}
               className="shrink-0 flex items-center opacity-40 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300"
             >
-              {logo.text ? (
-                <span className="text-white text-2xl font-bold tracking-tight whitespace-nowrap">
-                  {logo.text}
-                </span>
-              ) : (
-                <Image
-                  src={logo.src!}
-                  alt={logo.alt}
-                  width={logo.width!}
-                  height={logo.height!}
-                  className="h-10 w-auto object-contain"
-                  unoptimized
-                />
-              )}
+              <Image
+                src={logo.src}
+                alt={logo.alt}
+                width={logo.width}
+                height={logo.height}
+                className={logo.imgClass ?? "h-10 w-auto object-contain"}
+                unoptimized
+              />
             </div>
           ))}
         </motion.div>
